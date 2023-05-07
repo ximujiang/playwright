@@ -12,14 +12,20 @@ with sync_playwright() as p:
     # 获取page对象
     context = browser.contexts[0]
     page = context.pages[0]
-    page.goto('https://sou.zhaopin.com/?jl=765&kw=%E6%B5%8B%E8%AF%95&kt=3&srccode=')
+    page.goto('https://sou.zhaopin.com/?jl=765&kw=%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95&p=1')
     page.get_by_text('最新发布').click()
-    page.
     for i in range(29):
-        # page.hover(zp.job_li(i))
-        page.click(zp.job_li(i))
-        page.pause()
-
+        with context.expect_page() as new_page_info:
+            page.click(zp.job_li(i))
+        new_page = new_page_info.value
+        # 获取job的名字
+        job_title = new_page.inner_text(zp.job_title)
+        print(job_title)
+        zw = new_page.get_by_role('button', name='申请职位')
+        if zw:
+            logging.info("xxxxxxxxxxxxxx")
+        else:
+            logging.info("ooooooooooooo")
 
     # page.click(boss_page.close)
     # # 查询软件测试岗位

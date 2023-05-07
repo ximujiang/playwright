@@ -1,30 +1,16 @@
-# 登录按钮
-login_btn = '//*[@id="header"]/div[1]/div[4]/div/a[4]'
-# APP扫码登录
-APP_btn = '//*[@id="wrap"]/div/div[2]/div[2]/div[1]'
-# 首页
-herder_home_btn = '//*[contains(text(), "首页")]'
-# 输入框
-search_input = '//*[@name="query"]'
-# 搜索按钮
-search_btn = '//*[@id="wrap"]/div[3]/div/div[1]/div[1]/form/button'
-# 学历要求
-xl_btn = '//*[@id="wrap"]/div[2]//span[contains(text(), "学历要求")]'
-# 大专
-dz_btn = '//*[@id="wrap"]/div[2]/div[1]//*[contains(text(), "大专")]'
-# 薪资待遇
-xz_btn = '//*[@id="wrap"]/div[2]//*[contains(text(), "薪资待遇")]'
-# 薪资设置
-xz = '//*[@id="wrap"]/div[2]/div[1]//*[contains(text(), "10-20K")]'
-
 
 def job_li(li):
-    job = '//*[@id="positionList-hook"]/div/div[' + str(li + 1) + ']'
+    job = '//*[@class="positionlist"]/div[' + str(li + 1) + ']'
     return job
 
 
 def job_sc(i):
-    sc = job_li(i) + '//*[contains(text(), "")]'
+    sc = job_li(i) + '//*[contains(text(), "收藏")]'
+    return sc
+
+
+def job_sq(i):
+    sc = job_li(i) + '//*[contains(text(), "申请职位")]'
     return sc
 
 
@@ -32,7 +18,7 @@ def job_sc(i):
 icon = '//*[@class="ui-icon-arrow-right"]'
 
 # job名字
-job_title = '//*[@id="main"]/div[1]/div/div/div[1]/div[2]/h1'
+job_title = '//*[@class="summary-plane__title"]'
 # 立即沟通按钮
 communication_btn = '//*[@id="main"]/div[1]/div/div/div[1]/div[3]/div[1]/a[2]'
 job_sec_text = '//*[@class="job-sec-text"]'
