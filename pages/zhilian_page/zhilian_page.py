@@ -1,4 +1,3 @@
-
 def job_li(li):
     job = '//*[@class="positionlist"]/div[' + str(li + 1) + ']'
     return job
@@ -15,19 +14,24 @@ def job_sq(i):
 
 
 # 下一页
-icon = '//*[@class="ui-icon-arrow-right"]'
+next_button = '//*[@class="pagination clearfix"]//*[contains(text(), "下一页")]'
 
 # job名字
 job_title = '//*[@class="summary-plane__title"]'
-# 立即沟通按钮
-communication_btn = '//*[@id="main"]/div[1]/div/div/div[1]/div[3]/div[1]/a[2]'
-job_sec_text = '//*[@class="job-sec-text"]'
+# job要求
+job_detail = '//*[@class="describtion__detail-content"]'
 
-job_boss_info = '//*[@class="job-boss-info"]'
-# 城市
-city_label = '//*[@class="city-label"]'
+job_title_list = ['调试', '实习', '开发', '经理', '空调', '质量', '制冷', '硬件', '工艺', '销售',
+                  '客服', '认证', '储能', '评估', '灯具', '设备', '电源',
+                  '电控', '打包', '产品', '笔记本', '游戏', '整机', 'TE', '电子', '生产', '嵌入',
+                  '机器', '区块', '银行', 'c++', 'java', '顾问', 'sensor', '器械', '金融', 'QA',
+                  '英文', '班主任', '讲师', '电商',
+                  '客户端', '助理', '伺服', '医疗', '大数据', '充电', 'ERP', 'Linux', 'pcb', '粤语',
+                  '制', 'sdk', '管理']
 
-#
+job_sec_list = ['证券金融行业经验', '金融项目', '英语阅读能力', '银行系统', '银行项目',
+                '英文可以读写', '硬件测试', '电路', '英文材料', '电源产品', '安规',
+                '精通英语', '产品的检测', '熟悉家电', '大家电', '4级', '英语要求']
 
 # 广告X
 close = '//*[@class="active-close"]'
